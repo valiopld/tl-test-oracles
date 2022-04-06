@@ -1,0 +1,14 @@
+{
+  "name": "test-oracles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tl-rpc": "^1.0.3"
+  }
+}
