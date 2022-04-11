@@ -1,5 +1,5 @@
 const { commonConfig  } = require('./config');
-const { generateRandomOrders, fundAllAddresses, getTradersFromFile } = require('./order-manager');
+const { generateRandomOrders, getTradersFromFile } = require('./order-manager');
 const client = require('./rpc');
 const { setPrice } = require('./set-price');
 const { logger } = require('./utils');
@@ -40,7 +40,7 @@ class Manager {
 
     onNewBlock() {
         logger(`New block: ${this.lastBlock}`);
-        // setPrice();
+        setPrice();
     }
 
     waitOneBlock() {
