@@ -4,11 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js"
+    "start": "node ./src/index.js",
+    "generate-traders": "node ./src/generate-traders.js",
+    "fund-ltc": "node ./src/fund-ltc.js",
+    "fund-tokens": "node ./src/fund-tokens.js",
+    "kyc": "node ./src/kyc.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "moment": "^2.29.2",
     "tl-rpc": "^1.0.3"
   }
 }
