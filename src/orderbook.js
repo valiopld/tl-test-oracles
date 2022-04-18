@@ -7,8 +7,12 @@ const orderbook = [];
 const addToOrderBook = async (action, address, amount, price) => {
     const order = { action, address, amount, price };
     const orderMatch = checkOrderMatch(order);
+    logger(`New Order: address: ${address} - action: ${action} - amount: ${amount} - price: ${price}`);
     if (orderMatch) {
-        if (orderMatch.address === address) return;
+        if (orderMatch.address === address) {
+            logger(`WARNING: Order is not added. Cant trade with yourself`);
+            return;
+        };
 
         if (amount >= orderMatch.amount) {
             const index = orderbook.indexOf(orderMatch);
@@ -24,6 +28,7 @@ const addToOrderBook = async (action, address, amount, price) => {
         await generateNewSwap(order, orderMatch);
     } else {
         orderbook.push(order);
+        logger(`Order Added Successful`);
     }
 };
 

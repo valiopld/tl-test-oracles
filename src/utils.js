@@ -4,12 +4,17 @@ const moment = require("moment");
 const client = require("./rpc");
 
 const precision = commonConfig.numberPrecision;
-const safeNumber = (n) => parseFloat((n).toFixed(precision));
+const safeNumber = (n, p = precision) => parseFloat((n).toFixed(p));
 
 
 const logger = (message, logInConsole=true) => {
     try {
-        if (logInConsole) console.log(message);
+        if (logInConsole) {
+            // console.log(message);
+            process.stdout.clearLine();
+            process.stdout.cursorTo(0);
+            process.stdout.write(message);
+        }
         const time = moment().format('DD-MM-YYYY hh:mm:ss');
         const content = `${time}: ${(message)?.toString() || ''} \n`
         fs.appendFileSync('./debug.log', content);

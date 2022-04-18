@@ -7,7 +7,7 @@ const { logger } = require('./utils');
 class Manager {
     lastBlock = 0;
     constructor() {
-        logger(`------------------------------------------`);
+        logger(`-------------------------------------------------`);
         logger(`New Manager Initialized`);
         this.handleNewBlocks();
         this.startGeneratingOrders();
