@@ -79,7 +79,7 @@ const generateNewSwap = async (newOrder, oldOrder) => {
     // creating the payload
     const cpcitOptions = [
         contractConfig.contractId,
-        (2).toString(),
+        (amount * 10).toString(),
         height,
         (price).toString(),
         oldOrder.action === "BUY" ? 1 : 2,
